@@ -1,4 +1,4 @@
-name: test
+name: cmd_wf
 
 on:
   push:

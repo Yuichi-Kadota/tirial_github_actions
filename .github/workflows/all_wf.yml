@@ -1,4 +1,4 @@
-name: test
+name: all_wf
 
 on:
   push:
