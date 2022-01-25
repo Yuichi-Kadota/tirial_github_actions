@@ -1,0 +1,22 @@
+name: deployment
+
+on:
+  push:
+    branches:
+      - "main"
+    paths-ignore:
+      - ".github/**"
+      - "README.md"
+
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 
+        uses: actions/checkout@v2
+      - name: Count diff
+      - uses: .github/composite/diff
+        name: count_diff_exclude_batch
+        id: diff
+      - name: run cmd
+        run: echo {steps.diff.outputs.diff-count}
