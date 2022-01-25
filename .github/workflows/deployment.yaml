@@ -15,8 +15,6 @@ jobs:
       - name: Checkout 
         uses: actions/checkout@v2
       - name: Count diff
-      - uses: .github/composite/diff
-        name: count_diff_exclude_batch
-        id: diff
+        uses: .github/composite/diff
       - name: run cmd
         run: echo {steps.diff.outputs.diff-count}
