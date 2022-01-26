@@ -19,4 +19,4 @@ jobs:
         id: diff
       #   id: diff
       - name: run cmd
-        run: echo {steps.diff.outputs.diff-count}
+        run: echo {steps.count_diff_exclude_batch.outputs.diff-count}
