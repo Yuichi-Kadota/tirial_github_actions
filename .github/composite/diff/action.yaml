@@ -1,5 +1,5 @@
 name: count_diff_exclude_batch
-description: count_diff_exclude_batch
+description: diff-count
 outputs:
   diff-count:
     value: ${{ steps.diff.outputs.diff-count }}
