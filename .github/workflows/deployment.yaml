@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: .github/composite/diff
+      - uses: ./.github/composite/diff
         name: Count diff
         id: diff
       #   id: diff
