@@ -12,10 +12,10 @@ jobs:
   deployment:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        name: Checkout 
-      - uses: .github/composite/diff
-        name: Count diff
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Count diff
+        uses: .github/composite/diff
         id: diff
       - name: run cmd
         run: echo {steps.diff.outputs.diff-count}
