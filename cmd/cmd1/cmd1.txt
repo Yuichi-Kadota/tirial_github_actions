@@ -1,2 +1,1 @@
-cmd1_test
-cmd1_test2
+cmd1_test3
