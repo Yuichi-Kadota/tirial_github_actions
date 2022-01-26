@@ -12,5 +12,6 @@ runs:
       run: |
         git fetch origin ${TARGET_BRANCH}
         count=`git diff origin/main --name-only ':(exclude)cmd/*'  | wc -l`
+        echo $count
         echo "::set-output name=diff-count::$(echo $count)"
       shell: bash
