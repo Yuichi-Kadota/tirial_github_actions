@@ -10,6 +10,7 @@ runs:
       env:
         TARGET_BRANCH: ${{ github.base_ref }}
       run: |
+        echo ${TARGET_BRANCH}
         git fetch origin ${TARGET_BRANCH}
         count=`git diff origin/main --name-only ':(exclude)cmd/*'  | wc -l`
         echo $count
