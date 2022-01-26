@@ -14,9 +14,15 @@ jobs:
     steps:
       - name: checkout_source
         uses: actions/checkout@v2
+
       - name: count_diff_exclude_batch
         uses: ./.github/composite/diff
         id: diff
-      #   id: diff
+
+      - name: run test
+        run: echo {{steps.count_diff_exclude_batch.outputs.hello}}
+        shell: bash
+
       - name: run cmd
-        run: echo {steps.count_diff_exclude_batch.outputs.diff-count.value}
+        run: echo {{steps.count_diff_exclude_batch.outputs.count}}
+        shell: bash

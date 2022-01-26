@@ -1,18 +1,19 @@
-name: count_diff_exclude_batch
-description: diff-count
+name: count_diff_exclude_cmd
+description: count_diff_exclude_cmd
 outputs:
-  diff-count:
-    value: ${{ steps.diff.outputs.diff-count }}
+  count:
+    description: number of git diff exclude cmd/*
+    value: ${{ steps.diff.outputs.count }}
+  hello:
+    description: test str
+    value: ${{ steps.diff.outputs.hello}}
 runs:
   using: composite
   steps:
     - id: diff
-      env:
-        TARGET_BRANCH: ${{ github.base_ref }}
       run: |
-        echo ${TARGET_BRANCH}
-        git fetch origin ${TARGET_BRANCH}
         count=`git diff origin/main --name-only ':(exclude)cmd/*'  | wc -l`
         echo $count
-        echo "::set-output name=diff-count::$(echo $count)"
+        echo "::set-output name=count::$(echo $count)"
+        echo "::set-output name=hello::hello"
       shell: bash
